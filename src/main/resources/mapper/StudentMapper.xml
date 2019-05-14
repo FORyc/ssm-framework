@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StudentDAO">
+    <resultMap type="Student" id="paperResultMap" >
+        <id property="sid" column="SID"/>
+        <result property="sname" column="Sname"/>
+        <result property="sage" column="Sage"/>
+        <result property="ssex" column="Ssex"/>
+    </resultMap>
+
+    <select id="queryOne" resultType="com.entity.Student" parameterType="java.lang.String">
+        SELECT SID,Sname,Sage,Ssex FROM student where SID = #{id};
+    </select>
+    <select id="queryAll" resultType="com.entity.Student">
+        SELECT SID,Sname,Sage,Ssex FROM student;
+    </select>
+
+</mapper>
