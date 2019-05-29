@@ -27,4 +27,9 @@ public class StudentController {
     public List<Student> queryAll(){
         return studentService.queryAll();
     }
+
+    @RequestMapping(value = "/hello")
+    public String hello(){
+        return "index";
+    }
 }
