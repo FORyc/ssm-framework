@@ -9,8 +9,20 @@
 <html>
 <head>
     <title>students</title>
+    <%@include file="../base/head.jsp"%>
 </head>
 <body>
-Hello World
+<div id="div1">
+    {{msg}}
+</div>
 </body>
+<script>
+    new Vue({
+        el: '#div1',
+        data: {
+            msg: "Hello world"
+        }
+
+    })
+</script>
 </html>
