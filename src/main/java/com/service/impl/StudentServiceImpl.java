@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.annotation.ExecutionTime;
 import com.dao.StudentDAO;
 import com.entity.Student;
 import com.service.StudentService;
@@ -18,6 +19,7 @@ public class StudentServiceImpl implements StudentService {
         return studentDAO.queryOne(id);
     }
 
+    @ExecutionTime
     @Override
     public List<Student> queryAll() {
         return studentDAO.queryAll();

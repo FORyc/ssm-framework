@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.annotation.ExecutionTime;
 import com.entity.Student;
 import com.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class StudentController {
         return studentService.queryOne(id);
     }
 
+    @ExecutionTime
     @RequestMapping(value = "/queryAll")
     @ResponseBody
     public List<Student> queryAll(){
@@ -31,5 +33,21 @@ public class StudentController {
     @RequestMapping(value = "/hello")
     public String hello(){
         return "index";
+    }
+
+
+    @RequestMapping(value = "/add")
+    public String add(){
+        return "student/add";
+    }
+
+    @RequestMapping(value = "/save")
+    public String save(){
+        return "";
+    }
+
+    @RequestMapping(value = "/delete")
+    public String delete(){
+        return "";
     }
 }
