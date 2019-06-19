@@ -1,7 +1,11 @@
 package com.aspect;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Aspect
 @Component
@@ -15,6 +19,15 @@ public class ExecutionTimeAspect {
     @Before("checkPoint()")
     public void beforeCut(){
         System.out.println("start_method    切点前执行");
+    }
+
+    //代理方法的执行
+    @Around("checkPoint()")
+    public List around(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("start_method    执行");
+        Signature signature = pjp.getSignature();
+        System.out.println(signature);
+        return (List) pjp.proceed();
     }
 
     @After("checkPoint()")
